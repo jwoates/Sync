@@ -1,0 +1,9 @@
+.gitignore
+.git
+.DS_Store
+archive
+Makefile
+Rakefile
+rsync*
+*.lock
+.sass-cache
