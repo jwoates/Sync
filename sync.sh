@@ -7,13 +7,14 @@
 ####################################
 SCRIPT=`readlink -f $0`
 SCRIPTPATH=`dirname $SCRIPT`
+SSH_AUTH_SOCK="$(find /tmp/keyring*/ -perm 0755 -type s -user allibubba  -name '*ssh' | head -n 1)"
 
 #Load Config
 source $SCRIPTPATH/config
 
-echo "$(id -u)" >> $SCRIPTPATH/error.log
-echo "$SSHKEY" >> $SCRIPTPATH/error.log
-echo "$SSH_AUTH_SOCK" >> $SCRIPTPATH/error.log
+echo "01: $(id -u)" >> $SCRIPTPATH/error.log
+echo "02: $SSHKEY" >> $SCRIPTPATH/error.log
+echo "03: $SSH_AUTH_SOCK" >> $SCRIPTPATH/error.log
 
 # rsync binary
 rsync="/usr/bin/rsync"

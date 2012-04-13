@@ -71,7 +71,7 @@ If you are satisfied with the results, run the follwoing command to initate a pr
 
 ## Cron
 
-Cron runs with a limited set of environmental variables, so you need to include a few when you create a new cron task. Open the cront task list for the current user.
+Cron runs with a limited set of environmental variables, so you need to be sure SSH_AUTH_SOCK is being set in sync.sh. Open the cront task list for the current user.
 
     $ crontab -e
 
@@ -79,13 +79,9 @@ The task you will need to run is:
 
     $HOME/Tasks/Sync/sync.sh prod > $HOME/Tasks/Sync/task.log 2>&1
 
-Need to add in the user's SSH_AUTH_SOCK variable:
+    
 
-    SSH_AUTH_SOCK="$(find /tmp/keyring*/ -perm 0755 -type s -user <USERNAME> -group <USERGROUP> -name '*ssh' | head -n 1)"
-
-This will set the dynamic variable: SSH_AUTH_SOCK. Your task should look like the following:
+Your crontab should look like the following:
 
     # m   h   dom  mon dow   command
-      *   *    *    *   *    SSH_AUTH_SOCK="$(find /tmp/keyring*/ -perm 0755 -type s -user <USERNAME> -group <USERGROUP> -name '*ssh' | head -n 1)" $HOME/Tasks/Sync/sync.sh prod > $HOME/Tasks/Sync/task.log 2>&1
-
-NOTE: replace USERNAME with your user name and USERGROUP with your user group.
+      *   *    *    *   *    $HOME/Tasks/Sync/sync.sh prod > $HOME/Tasks/Sync/task.log 2>&1
