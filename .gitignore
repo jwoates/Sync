@@ -36,3 +36,4 @@ Thumbs.db
 # specific
 config
 db_config
+Makefile
