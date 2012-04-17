@@ -1,0 +1,4 @@
+SERVER=0.0.0.0
+USER=root
+PASSWORD=rh123456!
+DB_NAME=wordpress

@@ -7,3 +7,7 @@ Rakefile
 rsync*
 *.lock
 .sass-cache
+wp-config.php
+loo/*
+prototypes/*
+videos/*
