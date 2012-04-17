@@ -1,4 +1,0 @@
-SERVER=0.0.0.0
-USER=username
-PASSWORD=userpassword
-DB_NAME=mydatabase
