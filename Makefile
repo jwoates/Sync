@@ -1,6 +1,6 @@
-ORIGIN=/path/to/production/files/
-TARGET=/path/to/stage/files/
-REMOTE="XXX@XX.XXX.XXX.XXX.XXX"	
+ORIGIN=/home/allibubba/Projects/cbai/public_html/
+TARGET=/var/www/cbai/public_html/
+REMOTE="allibubba@10.1.10.249"	
 
 default:
 	@echo "you must specify an action: fakepush or push"; \

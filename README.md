@@ -54,7 +54,9 @@ Now that you are on the remote machine, we need to add the key to to you authori
 
     $ cd /home/username/Synch/
     $ cat username-rsync-key.pub >> ~/.ssh/authorized_keys
+
 ## Databse import
+
 A .sql file should be included with your nightly pull, to run a database import, call the importProdData.sh script via cron:
 
     $HOME/Tasks/Sync/importProdData.sh > $HOME/Tasks/Sync/import.log 2>&1
@@ -89,3 +91,16 @@ Your crontab should look like the following:
 
     # m   h   dom  mon dow   command
       *   *    *    *   *    $HOME/Tasks/Sync/sync.sh prod > $HOME/Tasks/Sync/task.log 2>&1
+
+## Pulling to Production machine
+Update the Makefile, need to set ORIGIN, TARGET and REMOTE. Origin is the location of the project on the machine you are pulling to (prod) eg.
+
+    ORIGIN=/home/user/project/public_html/
+
+Target is the path on the remote machine (stage) eg.
+
+    TARGET=/var/www/myproject/public_html/
+
+Remote is the credentials you use to log into the remote (stage) machine eg.
+
+    REMOTE="jackson@my.ip.address"
