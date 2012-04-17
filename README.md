@@ -13,7 +13,7 @@ Requires the following packages:
 
 Make the follwoing files: error.log, access.log and task.log
 
-    $ touch error.log access.log task.log config
+    $ touch error.log access.log task.log config db_config
 
 
 ## Config
@@ -54,6 +54,10 @@ Now that you are on the remote machine, we need to add the key to to you authori
 
     $ cd /home/username/Synch/
     $ cat username-rsync-key.pub >> ~/.ssh/authorized_keys
+## Databse import
+A .sql file should be included with your nightly pull, to run a database import, call the importProdData.sh script via cron:
+
+    $HOME/Tasks/Sync/importProdData.sh > $HOME/Tasks/Sync/import.log 2>&1
 
 ## Testing
 
