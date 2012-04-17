@@ -26,16 +26,16 @@ if [ -z $RUNNING ]; then
   # Log file
   log_file="$SCRIPTPATH/access.log"
 
-  # push
+  # push NOTE: use the --update flag to only update file if newer, in this case, we want whatever is on prod, so no updatge flag.
   if [ "$1" == 'prod' ];
     then
       echo -e "\nrunning PROD push...\n"
-      rsync --exclude-from=$SCRIPTPATH/rsync.exclude -avvvz -e ssh $REMOTE:$ORIGIN $TARGET
+      rsync --delete --exclude-from=$SCRIPTPATH/rsync.exclude -avvvz -e ssh $REMOTE:$ORIGIN $TARGET
 
 
     else
       echo -e "\nrunning TEST push...\n"
-      rsync  --dry-run --exclude-from=$SCRIPTPATH/rsync.exclude -avvvz -e ssh $REMOTE:$ORIGIN $TARGET
+      rsync  --dry-run --delete --exclude-from=$SCRIPTPATH/rsync.exclude -avvvz -e ssh $REMOTE:$ORIGIN $TARGET
   fi
 
   # log
