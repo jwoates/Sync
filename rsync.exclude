@@ -9,6 +9,8 @@ rsync*
 *.lock
 .sass-cache
 wp-config.php
+config.php
+database.php
 loo/*
 prototypes/*
 videos/*
