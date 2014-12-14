@@ -103,4 +103,4 @@ Target is the path on the remote machine (stage) eg.
 
 Remote is the credentials you use to log into the remote (stage) machine eg.
 
-    REMOTE="jackson@my.ip.address"
+    REMOTE="jackson@my.ip.address.com"
